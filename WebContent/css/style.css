@@ -1,5 +1,5 @@
 body {
-	height: 3000px;
+	
 	padding-top: 75px;
 }
 
@@ -13,4 +13,8 @@ body {
 	
 	height: 150px;
 	width: 150px;
+}
+
+.rodape {
+	text-decoration: none;
 }
