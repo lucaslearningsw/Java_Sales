@@ -13,7 +13,7 @@
 	<div class="container mt-4 col-lg-4 box-shadow ">
 		<div class="card-sm-10">
 			<div class="card-body">
-				<form>
+				<form class="form-sign" action="ValidateUser" method="POST">
 				 	<div class="form-group text-center">
 				 	<h4 class="display-7 text-primary">BEM VINDO AO JAVA SALES</h4>
 				 	<h3>LOGIN</h3>
@@ -26,6 +26,7 @@
 				 	<label>Senha:</label>
 				 	<input type="password" name="pass" class="form-control">
 				 	</div>
+				 
 				 <input type="submit" name="action" value="login" class="btn btn-primary">
 				</form>
 			</div>
