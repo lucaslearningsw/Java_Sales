@@ -34,7 +34,7 @@ public class ValidateUser extends HttpServlet {
 	    	  em=dao.validate(user, pass);
 	    	  if(em.getUser() != null) {
 	    		  request.setAttribute("usuario", em);
-	    		  request.getRequestDispatcher("Controller?action=mainapp").forward(request, response);
+	    		  request.getRequestDispatcher("mainapp.jsp").forward(request, response);
 	    	  } 
 	    	  else
 	    	  {

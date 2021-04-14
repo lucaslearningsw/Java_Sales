@@ -41,7 +41,7 @@
 				<div class="dropdown ms-auto text-center">
 					<button class="btn btn-primary dropdown-toggle" type="button"
 						id="dropdownMenuButton2" data-bs-toggle="dropdown"
-						aria-expanded="false">${usuario.getUser()}
+						aria-expanded="false">${usuario.getName()}
 						</button>
 					<ul class="dropdown-menu dropdown-menu-dark"
 						aria-labelledby="dropdownMenuButton2">
