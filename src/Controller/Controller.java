@@ -7,25 +7,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns = { "/Controller", "/main" })
+@WebServlet("/Controller")
 public class Controller extends HttpServlet {
-	private static final long serialVersionUID = 1L;
 
-	public Controller() {
-		super();
-	}
+	private void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String action = request.getParameter("action");
+		switch ("action") {
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		String action = request.getServletPath();
-		if (action.equals("/main")) {
-			login(request, response);
+		case "mainapp":
+			request.getRequestDispatcher("mainapp.jsp").forward(request, response);
+			break;
+
+		default:
+			throw new AssertionError();
 		}
-	}
 
-	protected void login(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		response.sendRedirect("login.jsp");
 	}
 
 }

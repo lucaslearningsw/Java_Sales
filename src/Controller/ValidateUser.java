@@ -7,42 +7,45 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class ValidateUser
- */
+import Model.Employee;
+import Model.EmployeeDAO;
+
 @WebServlet("/ValidateUser")
 public class ValidateUser extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+   
+	EmployeeDAO dao=new EmployeeDAO();
+	Employee em=new Employee();
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ValidateUser() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+	private void processRequest(HttpServletRequest request, HttpServletResponse response) {
+		response.setContentType("text/html;charset=UTF-8");
+		
+	}
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      String action=request.getParameter("action");
-      if(action.equals("login")) {
-    	  String user=request.getParameter("user");
-    	  String pass=request.getParameter("pass");
-      }
-      
-      else {
-    	  
-      }
+      processRequest(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+    
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		String action=request.getParameter("action");
+		if(action.equals("login")) {
+	    	  String user=request.getParameter("user");
+	    	  String pass=request.getParameter("pass");
+	    	  em=dao.validate(user, pass);
+	    	  if(em.getUser() != null) {
+	    		  request.setAttribute("usuario", em);
+	    		  request.getRequestDispatcher("Controller?action=mainapp").forward(request, response);
+	    	  } 
+	    	  else
+	    	  {
+	    		  request.getRequestDispatcher("login.jsp").forward(request, response);
+	    	  }
+	      }
+	      
+	      else {
+	    	  request.getRequestDispatcher("login.jsp").forward(request, response);
+	      }
+		
 	}
 
 }
