@@ -39,11 +39,13 @@ public class ValidateUser extends HttpServlet {
 	    	  else
 	    	  {
 	    		  request.getRequestDispatcher("login.jsp").forward(request, response);
+	    		  
 	    	  }
 	      }
 	      
 	      else {
 	    	  request.getRequestDispatcher("login.jsp").forward(request, response);
+	    	
 	      }
 		
 	}

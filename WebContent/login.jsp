@@ -26,9 +26,11 @@
 				 	<label>Senha:</label>
 				 	<input type="password" name="pass" class="form-control">
 				 	</div>
-				 
+				    
 				 <input type="submit" name="action" value="login" class="btn btn-primary">
+				 
 				</form>
+				
 			</div>
 		</div>
 	</div>

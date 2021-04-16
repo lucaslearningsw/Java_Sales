@@ -48,7 +48,9 @@
 						<li><a class="dropdown-item active" href="#">Usuario</a></li>
 						<li><a class="dropdown-item" href="#">usuario@gmail.com</a></li>
 						<li><hr class="dropdown-divider"></li>
-						<li><a class="dropdown-item" href="#">Sair</a></li>
+						<form action="ValidateUser" method="POST">
+						 <button name="action" value="sair" class="dropdown-item">Sair</button> 
+						</form>
 				</div>
 			</div>
 	</nav>
