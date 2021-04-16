@@ -17,7 +17,7 @@
 	<nav
 		class="navbar py-3 navbar-expand-md fixed-top navbar-light bg-light box-shadow">
 		<div class="container">
-			<a href="index.html" class="navbar-brand" alt="JAVA SALES">JAVA
+			<a href="#" class="navbar-brand" alt="JAVA SALES">JAVA
 				SALES</a>
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -28,13 +28,13 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav md-auto">
 					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="#funcionalidades">Produto</a></li>
+						aria-current="page" href="Controller?action=Produto" target="myFrame">Produto</a></li>
 					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="#contact">Clientes</a></li>
+						aria-current="page" href="Controller?action=Cliente" target="myFrame">Clientes</a></li>
 					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="#perguntasFrequentes">Empregado</a></li>
+						aria-current="page" href="Controller?action=Usuario" target="myFrame">Empregado</a></li>
 					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="#perguntasFrequentes">Venda</a></li>
+						aria-current="page" href="Controller?action=Venda" target="myFrame">Venda</a></li>
 
 
 				</ul>
@@ -55,6 +55,11 @@
 			</div>
 	</nav>
 
+
+  <div class="m-4 bg-dark" style="height: 800px;" >
+   <iframe  name="myFrame" style="height: 100%"; witdh: 100%">
+   </iframe>
+  </div>
 
 
 

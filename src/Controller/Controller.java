@@ -7,25 +7,42 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns = { "/Controller", "/main" })
+@WebServlet("/Controller")
 public class Controller extends HttpServlet {
-	private static final long serialVersionUID = 1L;
 
-	public Controller() {
-		super();
-	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		String action = request.getServletPath();
-		if (action.equals("/main")) {
-			login(request, response);
+	private void processRequest(HttpServletRequest request, HttpServletResponse response)
+	throws ServletException, IOException {
+		String action=request.getParameter("action");
+		
+		switch (action) {
+		case "Produto":
+			  request.getRequestDispatcher("Produto.jsp").forward(request, response);
+	    break;
+	    
+		case "Cliente":
+			  request.getRequestDispatcher("Cliente.jsp").forward(request, response);
+	    break;
+		case "Usuario":
+			  request.getRequestDispatcher("Usuario.jsp").forward(request, response);
+	    break;
+		case "Venda":
+			  request.getRequestDispatcher("Venda.jsp").forward(request, response);
+	    break;
+	    
+	    default:
+	    	throw new AssertionError();
+		
 		}
+		
 	}
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	      processRequest(request, response);
+		}
 
-	protected void login(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		response.sendRedirect("login.jsp");
-	}
+	
+	
+
 
 }
