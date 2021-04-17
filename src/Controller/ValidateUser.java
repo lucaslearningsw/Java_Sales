@@ -13,7 +13,7 @@ import Model.UserDAO;
 public class ValidateUser extends HttpServlet {
    
 	UserDAO dao=new UserDAO();
-	User em=new User();
+	User user=new User();
        
 	private void processRequest(HttpServletRequest request, HttpServletResponse response) {
 		response.setContentType("text/html;charset=UTF-8");
@@ -27,12 +27,24 @@ public class ValidateUser extends HttpServlet {
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action=request.getParameter("menu");
+		
+		if(action.equals("Create")) {
+			String user_email =request.getParameter("email");
+	    	String pass=request.getParameter("pass");
+	    	user.setEmail(user_email);
+	    	user.setName(user_email);
+	    	user.setPass(pass);
+	    	dao.create(user);
+	    	
+		}
+		
+		
 		if(action.equals("Login")) {
-	    	  String user=request.getParameter("email");
+	    	  String useremail=request.getParameter("email");
 	    	  String pass=request.getParameter("pass");
-	    	  em=dao.validate(user, pass);
-	    	  if(em.getEmail() != null) {
-	    		  request.setAttribute("usuario", em);
+	    	  user=dao.validate(useremail, pass);
+	    	  if(user.getEmail() != null) {
+	    		  request.setAttribute("usuario", user);
 	    		  request.getRequestDispatcher("mainapp.jsp").forward(request, response);
 	    	  } 
 	    	  else

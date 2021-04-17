@@ -36,28 +36,80 @@ public class UserDAO {
 		
 	}
 	
+	public User getID(int id) {
+		User user=new User();
+		String sql="select * from user where idUser="+id;
+		try {
+			con=cn.ConectionDB();
+			ps=con.prepareStatement(sql);
+			rs=ps.executeQuery();
+			while(rs.next())
+			{
+			   user.setEmail(rs.getString(4));
+			   user.setName(rs.getString(3));
+			   user.setPass(rs.getString(2));
+			}
+		}catch (Exception e) {
+		
+		}
+		
+		return user;
+	}
+	
 	
 	// CRUD
 	
 	public int create (User user) {
-		String sql="insert into user ";
+		String sql="insert into user(email,name,pass)values (?,?,?)";
 		try {
+			con=cn.ConectionDB();
+			ps=con.prepareStatement(sql);
+			ps.setString(1, user.getEmail());
+			ps.setString(2, user.getName());
+			ps.setString(3, user.getPass());
+		    ps.executeUpdate();
 			
 		}catch(Exception e)
 		{
 			
 		}
 		
-		return
+		return response;
 	}
 	
 	public int update (User user)
 	{
-		return 0;
+		
+		String sql="update user set email?,name?,pass? where idUser=?";
+		try {
+			con=cn.ConectionDB();
+			ps=con.prepareStatement(sql);
+			ps.setString(1, user.getEmail());
+			ps.setString(2, user.getName());
+			ps.setString(3, user.getPass());
+			ps.setInt(4, user.getIdUser());
+		    ps.executeUpdate();
+			
+		}catch(Exception e)
+		{
+			
+		}
+		
+		return response;
 	}
 	
 	public void delete(int id)
 	{
+		String sql="delete from user where idUser=?";
+		try {
+			con=cn.ConectionDB();
+			ps=con.prepareStatement(sql);
+		    ps.executeUpdate();
+			
+		}catch(Exception e)
+		{
+			
+		}
 		
 		
 	}

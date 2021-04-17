@@ -7,10 +7,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import Model.User;
+import Model.UserDAO;
+
 @WebServlet("/Controller")
 public class Controller extends HttpServlet {
 
-
+	UserDAO dao=new UserDAO();
+	User em=new User();
+	
 	private void processRequest(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException {
 		String action=request.getParameter("action");
@@ -21,13 +26,26 @@ public class Controller extends HttpServlet {
 			  request.getRequestDispatcher("mainapp.jsp").forward(request, response);
 			
 		}
+		
+		
 		if(menu.equals("User")) {
+			request.getRequestDispatcher("User.jsp").forward(request, response);
+			switch(action)
+			{
+			case "update":
+			break;
 			
-			  request.getRequestDispatcher("User.jsp").forward(request, response);
+			case"delete":
+			break;
+			
+			}
 			
 		}
 		
 		if(menu.equals("Client")) {
+			
+			
+			
 			
 			  request.getRequestDispatcher("Client.jsp").forward(request, response);
 			

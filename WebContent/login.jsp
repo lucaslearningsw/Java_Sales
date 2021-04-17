@@ -28,6 +28,7 @@
 				 	</div>
 				    
 			 	 <input type="submit" name="menu" value="Login" class="btn btn-primary">
+			 	  <input type="submit" name="menu" value="Create" class="btn btn-primary">
 				 
 				</form>
 				
