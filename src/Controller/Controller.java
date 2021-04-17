@@ -14,27 +14,38 @@ public class Controller extends HttpServlet {
 	private void processRequest(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException {
 		String action=request.getParameter("action");
+		String menu=request.getParameter("menu");
 		
-		switch (action) {
-		case "Produto":
-			  request.getRequestDispatcher("Produto.jsp").forward(request, response);
-	    break;
-	    
-		case "Cliente":
-			  request.getRequestDispatcher("Cliente.jsp").forward(request, response);
-	    break;
-		case "Usuario":
-			  request.getRequestDispatcher("Usuario.jsp").forward(request, response);
-	    break;
-		case "Venda":
-			  request.getRequestDispatcher("Venda.jsp").forward(request, response);
-	    break;
-	    
-	    default:
-	    	throw new AssertionError();
-		
+		if(menu.equals("Login")) {
+			
+			  request.getRequestDispatcher("mainapp.jsp").forward(request, response);
+			
+		}
+		if(menu.equals("User")) {
+			
+			  request.getRequestDispatcher("User.jsp").forward(request, response);
+			
 		}
 		
+		if(menu.equals("Client")) {
+			
+			  request.getRequestDispatcher("Client.jsp").forward(request, response);
+			
+		}
+		
+		if(menu.equals("Product")) {
+			
+			  request.getRequestDispatcher("Product.jsp").forward(request, response);
+			
+		}
+		if(menu.equals("Sale")) {
+			
+			  request.getRequestDispatcher("Sale.jsp").forward(request, response);
+			
+		}
+		
+		
+	
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

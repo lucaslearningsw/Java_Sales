@@ -28,13 +28,13 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav md-auto">
 					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="Controller?action=Produto" target="myFrame">Produto</a></li>
+						aria-current="page" href="Controller?menu=Product" target="myFrame">Produto</a></li>
 					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="Controller?action=Cliente" target="myFrame">Clientes</a></li>
+						aria-current="page" href="Controller?menu=Client" target="myFrame">Clientes</a></li>
 					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="Controller?action=Usuario" target="myFrame">Empregado</a></li>
-					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="Controller?action=Venda" target="myFrame">Venda</a></li>
+						aria-current="page" href="Controller?menu=Sales" target="myFrame">Venda</a></li>
+						<li class="nav-item"><a class="nav-link active"
+						aria-current="page" href="Controller?menu=User" target="myFrame">Usuario</a></li>
 
 
 				</ul>
@@ -45,18 +45,17 @@
 						</button>
 					<ul class="dropdown-menu dropdown-menu-dark"
 						aria-labelledby="dropdownMenuButton2">
-						<li><a class="dropdown-item active" href="#">Usuario</a></li>
-						<li><a class="dropdown-item" href="#">usuario@gmail.com</a></li>
+						<li><a class="dropdown-item" href="#"></a>${usuario.getEmail()}</li>
 						<li><hr class="dropdown-divider"></li>
 						<form action="ValidateUser" method="POST">
-						 <button name="action" value="sair" class="dropdown-item">Sair</button> 
+						 <button name="menu" value="sair" class="dropdown-item">Sair</button> 
 						</form>
 				</div>
 			</div>
 	</nav>
 
 
-  <div class="m-4 bg-dark" style="height: 800px;" >
+  <div class="m-4" style="height: 800px;" >
    <iframe  name="myFrame" style="height: 100%"; witdh: 100%">
    </iframe>
   </div>

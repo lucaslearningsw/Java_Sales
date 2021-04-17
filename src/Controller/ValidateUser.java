@@ -27,8 +27,8 @@ public class ValidateUser extends HttpServlet {
 
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String action=request.getParameter("action");
-		if(action.equals("login")) {
+		String action=request.getParameter("menu");
+		if(action.equals("Login")) {
 	    	  String user=request.getParameter("email");
 	    	  String pass=request.getParameter("pass");
 	    	  em=dao.validate(user, pass);
