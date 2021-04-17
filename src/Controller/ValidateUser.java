@@ -6,15 +6,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import Model.Employee;
-import Model.EmployeeDAO;
+import Model.User;
+import Model.UserDAO;
 
 @WebServlet("/ValidateUser")
 public class ValidateUser extends HttpServlet {
    
-	EmployeeDAO dao=new EmployeeDAO();
-	Employee em=new Employee();
+	UserDAO dao=new UserDAO();
+	User em=new User();
        
 	private void processRequest(HttpServletRequest request, HttpServletResponse response) {
 		response.setContentType("text/html;charset=UTF-8");
