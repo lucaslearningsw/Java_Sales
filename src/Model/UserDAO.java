@@ -11,10 +11,11 @@ public class UserDAO {
 	Connection con;
 	PreparedStatement ps;
 	ResultSet rs;
+	int response;
 	
 	public User validate(String email, String pass) {
 		User user=new User();
-		String sql="select * from employee where email=? and pass=?";
+		String sql="select * from user where email=? and pass=?";
 		try {
 			con=cn.ConectionDB();
 			ps=con.prepareStatement(sql);
@@ -38,6 +39,28 @@ public class UserDAO {
 	
 	// CRUD
 	
+	public int create (User user) {
+		String sql="insert into user ";
+		try {
+			
+		}catch(Exception e)
+		{
+			
+		}
+		
+		return
+	}
+	
+	public int update (User user)
+	{
+		return 0;
+	}
+	
+	public void delete(int id)
+	{
+		
+		
+	}
 	
 	
 

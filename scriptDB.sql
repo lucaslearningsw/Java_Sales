@@ -1,5 +1,4 @@
-
-CREATE TABLE `employee` (
+CREATE TABLE `user` (
   `idUser` int(10)  NOT NULL AUTO_INCREMENT, 
   `pass` varchar(8) NOT NULL,
   `name` varchar(255) NOT NULL,
@@ -8,6 +7,5 @@ CREATE TABLE `employee` (
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO employee (pass,`name`,email) values
+INSERT INTO user (pass,`name`,email) values
 (123,'lucasa','lucas1');
-
