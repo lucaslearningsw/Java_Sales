@@ -20,7 +20,7 @@
 				 	</div>
 				 	<div class="form-group">
 				 	<label>Usuario:</label>
-				 	<input type="text" name="user" class="form-control">
+				 	<input type="text" name="email" class="form-control">
 				 	</div>
 				 	<div class="form-group">
 				 	<label>Senha:</label>

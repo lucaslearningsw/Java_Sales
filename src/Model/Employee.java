@@ -4,22 +4,18 @@ public class Employee {
 	int idEmployee;
 	String pass;
 	String name;
-	String phone;
-	String state;
-	String user;
+	String email;
 	
 	public Employee() {
 		
 	}
-	
-	public Employee(int idEmployee, String pass, String name, String phone, String state, String user) {
+
+	public Employee(int idEmployee, String pass, String name, String email) {
 		super();
 		this.idEmployee = idEmployee;
 		this.pass = pass;
 		this.name = name;
-		this.phone = phone;
-		this.state = state;
-		this.user = user;
+		this.email = email;
 	}
 
 	public int getIdEmployee() {
@@ -46,29 +42,14 @@ public class Employee {
 		this.name = name;
 	}
 
-	public String getPhone() {
-		return phone;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setEmail(String email) {
+		this.email = email;
 	}
-
-	public String getState() {
-		return state;
-	}
-
-	public void setState(String state) {
-		this.state = state;
-	}
-
-	public String getUser() {
-		return user;
-	}
-
-	public void setUser(String user) {
-		this.user = user;
-	}
+	
 
 }
 

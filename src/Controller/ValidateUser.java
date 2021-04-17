@@ -29,10 +29,10 @@ public class ValidateUser extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action=request.getParameter("action");
 		if(action.equals("login")) {
-	    	  String user=request.getParameter("user");
+	    	  String user=request.getParameter("email");
 	    	  String pass=request.getParameter("pass");
 	    	  em=dao.validate(user, pass);
-	    	  if(em.getUser() != null) {
+	    	  if(em.getEmail() != null) {
 	    		  request.setAttribute("usuario", em);
 	    		  request.getRequestDispatcher("mainapp.jsp").forward(request, response);
 	    	  } 
