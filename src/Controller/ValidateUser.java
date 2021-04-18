@@ -28,14 +28,19 @@ public class ValidateUser extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action=request.getParameter("menu");
 		
-		if(action.equals("Create")) {
+		if(action.equals("Registrar")) {
 			String user_email =request.getParameter("email");
 	    	String pass=request.getParameter("pass");
 	    	user.setEmail(user_email);
 	    	user.setName(user_email);
 	    	user.setPass(pass);
 	    	dao.create(user);
-	    	
+		}
+		
+		if(action.equals("Cancelar")) {
+			
+			  request.getRequestDispatcher("index.html").forward(request, response);
+			
 		}
 		
 		
