@@ -36,9 +36,9 @@ public class UserDAO {
 		
 	}
 	
-	public User getID(int id) {
+	public User GetEmail(String email) {
 		User user=new User();
-		String sql="select * from user where idUser="+id;
+		String sql="select * from user where email="+email;
 		try {
 			con=cn.ConectionDB();
 			ps=con.prepareStatement(sql);
@@ -98,13 +98,15 @@ public class UserDAO {
 		return response;
 	}
 	
-	public void delete(int id)
+	public void delete(String email)
 	{
-		String sql="delete from user where idUser=?";
+		String sql="delete from user where email=?";
 		try {
 			con=cn.ConectionDB();
 			ps=con.prepareStatement(sql);
+			ps.setString(1, email);
 		    ps.executeUpdate();
+		    
 			
 		}catch(Exception e)
 		{

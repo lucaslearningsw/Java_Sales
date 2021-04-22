@@ -6,6 +6,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import Model.User;
 import Model.UserDAO;
 
@@ -14,9 +16,11 @@ public class ValidateUser extends HttpServlet {
    
 	UserDAO dao=new UserDAO();
 	User user=new User();
+
        
 	private void processRequest(HttpServletRequest request, HttpServletResponse response) {
 		response.setContentType("text/html;charset=UTF-8");
+		
 		
 	}
 	
@@ -27,16 +31,32 @@ public class ValidateUser extends HttpServlet {
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String action=request.getParameter("menu");
+		if(action.equals("Excluir")) {
+			String user_email =request.getParameter("email");
+			dao.delete(user_email);
+			request.getSession().invalidate();
+			response.sendRedirect("index.html");
+			
+		}
+		
+		if(action.equals("Sair")) {
+			request.getSession().invalidate();
+			response.sendRedirect("index.html");
+		}
+		
 		
 		if(action.equals("Registrar")) {
 			String user_email =request.getParameter("email");
 	    	String pass=request.getParameter("pass");
+	    	String name=request.getParameter("name");
 	    	user.setEmail(user_email);
-	    	user.setName(user_email);
+	    	user.setName(name);
 	    	user.setPass(pass);
 	    	dao.create(user);
+	    	request.getRequestDispatcher("login.jsp").forward(request, response);
 		}
 		
+
 		if(action.equals("Cancelar")) {
 			
 			  request.getRequestDispatcher("index.html").forward(request, response);
@@ -49,20 +69,19 @@ public class ValidateUser extends HttpServlet {
 	    	  String pass=request.getParameter("pass");
 	    	  user=dao.validate(useremail, pass);
 	    	  if(user.getEmail() != null) {
-	    		  request.setAttribute("usuario", user);
+	    		 HttpSession session = request.getSession();
+				 session.setAttribute("usuario", user);
 	    		  request.getRequestDispatcher("mainapp.jsp").forward(request, response);
 	    	  } 
 	    	  else
 	    	  {
+	    	
 	    		  request.getRequestDispatcher("login.jsp").forward(request, response);
 	    		  
 	    	  }
 	      }
 	      
-	      else {
-	    	  request.getRequestDispatcher("login.jsp").forward(request, response);
-	    	
-	      }
+	      
 		
 	}
 

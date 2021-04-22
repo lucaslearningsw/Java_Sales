@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import Model.User;
 import Model.UserDAO;
@@ -14,12 +15,14 @@ import Model.UserDAO;
 public class Controller extends HttpServlet {
 
 	UserDAO dao=new UserDAO();
-	User em=new User();
+	User user=new User();
+	
 	
 	private void processRequest(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException {
 		String action=request.getParameter("action");
 		String menu=request.getParameter("menu");
+		String email = request.getParameter("email");
 		
 		if(menu.equals("Login")) {
 			
@@ -28,19 +31,24 @@ public class Controller extends HttpServlet {
 		}
 		
 		
+		
 		if(menu.equals("User")) {
-			request.getRequestDispatcher("User.jsp").forward(request, response);
+			
 			switch(action)
 			{
 			case "update":
 			break;
 			
-			case"delete":
+			case "getUser":
+               user=dao.GetEmail(email);
+			   request.getRequestDispatcher("User.jsp").forward(request, response);
 			break;
-			
+
 			}
 			
 		}
+		
+		
 		
 		if(menu.equals("Client")) {
 			
@@ -69,9 +77,6 @@ public class Controller extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	      processRequest(request, response);
 		}
-
 	
-	
-
 
 }

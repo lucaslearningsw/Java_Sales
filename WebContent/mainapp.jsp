@@ -1,3 +1,4 @@
+<%@page import="Model.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -34,8 +35,7 @@
 					<li class="nav-item"><a class="nav-link active"
 						aria-current="page" href="Controller?menu=Sales" target="myFrame">Venda</a></li>
 						<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="Controller?menu=User" target="myFrame">Usuario</a></li>
-
+						aria-current="page" href="Controller?menu=User&action=getUser&email=${usuario.getEmail()}" target="myFrame">Usuario</a></li>
 
 				</ul>
 				<div class="dropdown ms-auto text-center">
@@ -48,7 +48,7 @@
 						<li><a class="dropdown-item" href="#"></a>${usuario.getEmail()}</li>
 						<li><hr class="dropdown-divider"></li>
 						<form action="ValidateUser" method="POST">
-						 <button name="menu" value="sair" class="dropdown-item">Sair</button> 
+						 <button name="menu" value="Sair" class="dropdown-item">Sair</button> 
 						</form>
 				</div>
 			</div>
