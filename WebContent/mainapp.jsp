@@ -35,7 +35,7 @@
 					<li class="nav-item"><a class="nav-link active"
 						aria-current="page" href="Controller?menu=Sales" target="myFrame">Venda</a></li>
 						<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="Controller?menu=User&action=getUser&email=${usuario.getEmail()}" target="myFrame">Usuario</a></li>
+						aria-current="page" href="ValidateUser?menu=GetUser&email=${usuario.getEmail()}" target="myFrame">Usuario</a></li>
 
 				</ul>
 				<div class="dropdown ms-auto text-center">
