@@ -14,14 +14,10 @@ import Model.UserDAO;
 @WebServlet("/Controller")
 public class Controller extends HttpServlet {
 
-	UserDAO dao = new UserDAO();
-	User user = new User();
 
 	private void processRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String action = request.getParameter("action");
 		String menu = request.getParameter("menu");
-		String email = request.getParameter("email");
 
 		if (menu.equals("Login")) {
 
@@ -29,22 +25,6 @@ public class Controller extends HttpServlet {
 
 		}
 
-		if (menu.equals("Client")) {
-
-			request.getRequestDispatcher("Client.jsp").forward(request, response);
-
-		}
-
-		if (menu.equals("Product")) {
-
-			request.getRequestDispatcher("Product.jsp").forward(request, response);
-
-		}
-		if (menu.equals("Sale")) {
-
-			request.getRequestDispatcher("Sale.jsp").forward(request, response);
-
-		}
 
 	}
 
