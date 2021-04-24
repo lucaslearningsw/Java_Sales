@@ -17,14 +17,14 @@ CREATE TABLE `product` (
   `idProduct` int(11)  NOT NULL AUTO_INCREMENT,
   `name` varchar(244) DEFAULT NULL,
   `price` double DEFAULT NULL,
-  `Stock` int(11) UNSIGNED DEFAULT NULL,
+  `stock` int(11) UNSIGNED DEFAULT NULL,
   `state` varchar(1) DEFAULT NULL,
   PRIMARY KEY (idProduct)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 
-INSERT INTO `product` ( `name`, `price`, `Stock`, `state`) VALUES
+INSERT INTO `product` ( `name`, `price`, `stock`, `state`) VALUES
 ( 'produto3', 10, 91, '1'),
 ( 'produto4',30, 9, '1'),
 ( 'produto3', 300, 10, '1'),
