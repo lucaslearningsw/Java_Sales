@@ -17,11 +17,12 @@ public class ValidateUser extends HttpServlet {
 	UserDAO dao = new UserDAO();
 	User user = new User();
 
+	
 	private void processRequest(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
 		String action = request.getParameter("menu");
-
+       
 		if (action.equals("GetUser")) {
 			String email = request.getParameter("email");
 			user = dao.GetEmail(email);

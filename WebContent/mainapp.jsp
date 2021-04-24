@@ -29,7 +29,7 @@
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav md-auto">
 					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="Product?action=ListAllProduct" target="myFrame">Produto</a></li>
+						aria-current="page" href="ProductServlet?action=ListAllProduct" target="myFrame">Produto</a></li>
 					<li class="nav-item"><a class="nav-link active"
 						aria-current="page" href="Controller?menu=Client" target="myFrame">Clientes</a></li>
 					<li class="nav-item"><a class="nav-link active"
