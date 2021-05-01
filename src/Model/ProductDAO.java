@@ -19,8 +19,8 @@ public class ProductDAO {
 //CRUD
 	
 	
-	public List AllProduct() {
-		String sql="select * from p";
+	public List SelectAllProduct() {
+		String sql="select * from product";
 		List<Product>list=new ArrayList<>();
 		try {
 			con = cn.ConectionDB();
@@ -47,7 +47,7 @@ public class ProductDAO {
 	
 
 	public int Create(Product p) {
-		String sql = "insert into p(name,price,stock,state)values (?,?,?,?)";
+		String sql = "insert into product (name,price,stock,state)values (?,?,?,?)";
 		try {
 			con = cn.ConectionDB();
 			ps = con.prepareStatement(sql);
@@ -85,7 +85,7 @@ public class ProductDAO {
 	}
 
 	public void Delete(int id) {
-		String sql = "delete from p where idp=?";
+		String sql = "delete from product where idp=?";
 		try {
 			con = cn.ConectionDB();
 			ps = con.prepareStatement(sql);

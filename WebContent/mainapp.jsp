@@ -55,9 +55,8 @@
 	</nav>
 
 
-  <div class="m-4" style="height: 800px;" >
-   <iframe  name="myFrame" style="height: 100%"; witdh: 100%">
-   </iframe>
+  <div class="m-4 bg-danger" style="height: 600px;">
+   <iframe  name="myFrame" style="height: 100%; width: 100%"></iframe>
   </div>
 
 

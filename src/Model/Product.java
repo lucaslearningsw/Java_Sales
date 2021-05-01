@@ -4,7 +4,7 @@ public class Product {
 	
 	int idProduct;
 	String name;
-	Float price;
+	float price;
     int stock;
     int state;
     
@@ -37,11 +37,11 @@ public class Product {
 		this.name = name;
 	}
 
-	public Float getPrice() {
+	public float getPrice() {
 		return price;
 	}
 
-	public void setPrice(Float price) {
+	public void setPrice(float price) {
 		this.price = price;
 	}
 

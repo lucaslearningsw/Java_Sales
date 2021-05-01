@@ -1,22 +1,31 @@
 package Controller;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+
 import Model.Product;
 import Model.ProductDAO;
 @WebServlet("/ProductServlet")
 
 public class ProductServlet extends HttpServlet {
 
+Product p= new Product();
+ProductDAO pdao = new ProductDAO();
+
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String action = request.getParameter("action");
 		if (action.equals("ListAllProduct")) {
+			List list=pdao.SelectAllProduct();
+			request.setAttribute("products", list);
 			request.getRequestDispatcher("Product.jsp").forward(request, response);
 
 		}
@@ -25,6 +34,20 @@ public class ProductServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
+		String action = request.getParameter("action");
+		if (action.equals("Adicionar")) {
+			String name=request.getParameter("txtName");
+			String price= request.getParameter("txtPrice");
+			String stock = request.getParameter("txtStock");
+			String state = request.getParameter("txtState");
+			p.setName(name);
+			p.setPrice(Float.parseFloat(price));
+			p.setStock(Integer.parseInt(stock));
+            p.setState(Integer.parseInt(state));
+            pdao.Create(p);
+            response.sendRedirect("ProductServlet?action=ListAllProduct");
+		}
 
 	}
 }
