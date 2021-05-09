@@ -9,7 +9,6 @@ import java.util.List;
 import Config.ConnectionDB;
 
 public class ProductDAO {
-
 	ConnectionDB cn = new ConnectionDB();
 	Connection con;
 	PreparedStatement ps;
@@ -17,6 +16,32 @@ public class ProductDAO {
 	int response;
 
 //CRUD
+	
+	
+	
+	public Product GetId(int id) {
+		Product product=new Product();
+		String sql="select * from product where idProduct=?";
+		try {
+			con = cn.ConectionDB();
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, id);
+			rs=ps.executeQuery();
+			while(rs.next()) {
+				product.setIdProduct(rs.getInt(1));
+				product.setName(rs.getString(2));
+				product.setPrice(rs.getFloat(3));
+				product.setStock(rs.getInt(4));
+				product.setState(rs.getInt(5));
+			}
+			
+		}catch (Exception e) {
+			
+		}
+		
+		return product;
+	}
+	
 	
 	
 	public List SelectAllProduct() {
@@ -66,7 +91,7 @@ public class ProductDAO {
 
 	public int Update(Product p) {
 
-		String sql = "update p set name?,price?,stock?,state? where idp=?";
+		String sql = "update p set name?,price?,stock?,state? where id=?";
 		try {
 			con = cn.ConectionDB();
 			ps = con.prepareStatement(sql);
@@ -85,7 +110,7 @@ public class ProductDAO {
 	}
 
 	public void Delete(int id) {
-		String sql = "delete from product where idp=?";
+		String sql = "delete from product where idProduct=?";
 		try {
 			con = cn.ConectionDB();
 			ps = con.prepareStatement(sql);

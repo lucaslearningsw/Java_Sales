@@ -22,19 +22,19 @@
 			<form action="ProductServlet" method="POST">
 
 				<div class="form-group">
-					<label>Name</label> <input type="text" name="txtName"
+					<label>Name</label> <input type="text" value="${product.getName()}" name="txtName"
 						class="form-control">
 				</div>
 				<div class="form-group">
-					<label>Price</label> <input type="text" name="txtPrice"
+					<label>Price</label> <input type="text" value="${product.getPrice()}" name="txtPrice"
 						class="form-control">
 				</div>
 				<div class="form-group">
-					<label>Stock</label> <input type="text" name="txtStock"
+					<label>Stock</label> <input type="text" value="${product.getStock()}" name="txtStock"
 						class="form-control">
 				</div>
 				<div class="form-group">
-					<label>State</label> <input type="text" name="txtState"
+					<label>State</label> <input type="text" value="${product.getState()}" name="txtState"
 						class="form-control">
 				</div>
 				<input type="submit" name="action" value="Adicionar"
@@ -63,9 +63,8 @@
 					<td>${p.getStock()}</td>
 					<td>${p.getState()}</td>
 					<td>
-					<a class="btn btn-warning" href="ProductServlet?action=Editar">Editar</a>
-					<a class="btn btn-danger" href="ProductServlet?action=Editar">Excluir</a>
-					</td>
+					<a class="btn btn-warning" href="ProductServlet?action=Edit&id=${p.getIdProduct()}">Editar</a>
+					<a class="btn btn-danger" href="ProductServlet?action=Delete&id=${p.getIdProduct()}">Excluir</a>
 				</tr>
 				</c:forEach>
 			</tbody>

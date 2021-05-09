@@ -72,7 +72,7 @@ public class ValidateUser extends HttpServlet {
 			if (user.getEmail() != null) {
 				HttpSession session = request.getSession();
 				session.setAttribute("usuario", user);
-				request.getRequestDispatcher("mainapp.jsp").forward(request, response);
+				response.sendRedirect("mainapp.jsp");
 			} else {
 
 				request.getRequestDispatcher("login.jsp").forward(request, response);
