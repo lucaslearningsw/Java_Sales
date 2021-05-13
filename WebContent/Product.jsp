@@ -19,7 +19,8 @@
 <div class="d-flex">
 	<div class="card col-sm-3">
 		<div class="card-body">
-			<form action="ProductServlet" method="POST">
+			<form action="ProductServlet" method="GET">
+			
 
 				<div class="form-group">
 					<label>Name</label> <input type="text" value="${product.getName()}" name="txtName"
@@ -39,6 +40,8 @@
 				</div>
 				<input type="submit" name="action" value="Adicionar"
 					class="btn btn-primary mt-4">
+					<input type="submit" name="action" value="Atualizar"
+					class="btn btn-success mt-4">
 			</form>
 		</div>
 	</div>

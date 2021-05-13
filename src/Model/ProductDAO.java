@@ -91,7 +91,7 @@ public class ProductDAO {
 
 	public int Update(Product p) {
 
-		String sql = "update p set name?,price?,stock?,state? where id=?";
+		String sql = "update product set name=?,price=?,stock=?,state=? where idProduct=?";
 		try {
 			con = cn.ConectionDB();
 			ps = con.prepareStatement(sql);
@@ -99,6 +99,7 @@ public class ProductDAO {
 			ps.setFloat(2, p.getPrice());
 			ps.setInt(3, p.getStock());
 			ps.setInt(4, p.getState());
+			ps.setInt(5, p.getIdProduct());
 			ps.executeUpdate();
 			
 
