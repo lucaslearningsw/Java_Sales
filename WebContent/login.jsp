@@ -26,6 +26,11 @@
 				 	<label>Senha:</label>
 				 	<input type="password" name="pass" class="form-control">
 				 	</div>
+				 	user_error
+				 	
+				 	<div class="form-group">
+				 	<p>${user_error}</p>
+				 	</div>
 				 	
 				 	
 				    

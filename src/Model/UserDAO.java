@@ -54,6 +54,31 @@ public class UserDAO {
 		return user;
 	}
 
+	public boolean Email_Registered(String email) {
+		User user = new User();
+		String sql = "select * from user where email=?";
+		try {
+			con = cn.ConectionDB();
+			ps = con.prepareStatement(sql);
+			ps.setString(1, email);
+			rs = ps.executeQuery();
+			while (rs.next()) {
+				user.setEmail(rs.getString(4));
+
+			}
+		} catch (Exception e) {
+
+		}
+
+		boolean r;
+		if (user.getEmail() == null) {
+			r = false;
+		} else
+			r = true;
+
+		return r;
+	}
+
 	// CRUD
 
 	public int create(User user) {
