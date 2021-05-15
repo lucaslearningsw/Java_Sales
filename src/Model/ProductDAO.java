@@ -36,7 +36,7 @@ public class ProductDAO {
 			}
 			
 		}catch (Exception e) {
-			
+			System.out.println("ERRO AO SELECIONAR PRODUTO NO BANCO DE DADOS");
 		}
 		
 		return product;
@@ -64,7 +64,7 @@ public class ProductDAO {
 			}
 		}catch (Exception e)
 		{
-			
+			System.out.println("ERRO AO SELECIONAR PRODUTO NO BANCO DE DADOS");
 		}
 		
 		return list;
@@ -83,7 +83,7 @@ public class ProductDAO {
 			ps.executeUpdate();
 
 		} catch (Exception e) {
-
+			System.out.println("ERRO AO INSERIR PRODUTO NO BANCO DE DADOS");
 		}
 
 		return response;
@@ -104,7 +104,7 @@ public class ProductDAO {
 			
 
 		} catch (Exception e) {
-
+			System.out.println("ERRO AO ATUALIZAR PRODUTO NO BANCO DE DADOS");
 		}
 
 		return response;

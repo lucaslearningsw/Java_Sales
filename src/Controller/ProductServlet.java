@@ -49,34 +49,39 @@ public class ProductServlet extends HttpServlet {
 			pdao.Update(p);
 			response.sendRedirect("ProductServlet?action=ListAllProduct");
 		}
-		
-		
+
 		if (action.equals("Delete")) {
 			id = Integer.parseInt(request.getParameter("id"));
 			pdao.Delete(id);
 			response.sendRedirect("ProductServlet?action=ListAllProduct");
 		}
-		
+
 		if (action.equals("Adicionar")) {
-			String name = request.getParameter("txtName");
-			String price = request.getParameter("txtPrice");
-			String stock = request.getParameter("txtStock");
-			String state = request.getParameter("txtState");
-			p.setName(name);
-			p.setPrice(Float.parseFloat(price));
-			p.setStock(Integer.parseInt(stock));
-			p.setState(Integer.parseInt(state));
-			pdao.Create(p);
-			response.sendRedirect("ProductServlet?action=ListAllProduct");
+
+			try {
+				String name = request.getParameter("txtName");
+				String price = request.getParameter("txtPrice");
+				String stock = request.getParameter("txtStock");
+				String state = request.getParameter("txtState");
+				p.setName(name);
+				p.setPrice(Float.parseFloat(price));
+				p.setStock(Integer.parseInt(stock));
+				p.setState(Integer.parseInt(state));
+				pdao.Create(p);
+				response.sendRedirect("ProductServlet?action=ListAllProduct");
+
+			} catch (Exception e) {
+				request.setAttribute("product_error", "NÃO FOI POSSÍVEL ADICIONAR O PRODUTO, CASO O ERRO PERSISTA , CONTATE O ADMINISTRADOR DO SISTEMA");
+				request.getRequestDispatcher("Product.jsp").forward(request, response);
+				response.sendRedirect("ProductServlet?action=ListAllProduct");
+		    }
+
 		}
-		
-		
 
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 
 	}
 }

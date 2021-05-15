@@ -16,7 +16,7 @@ public class ConnectionDB {
 			
 		} catch (Exception e)
 		{
-			
+			 System.out.println("NÃO FOI POSSÍVEL CONECTAR COM O BANCO DE DADOS");
 		}
 		return con;
 	}
