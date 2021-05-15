@@ -54,7 +54,7 @@ public class ValidateUser extends HttpServlet {
 			if(dao.Email_Registered(user_email))
 			{
 				request.setAttribute("user_error", "já existe esse email cadastrado");
-				request.getRequestDispatcher("login.jsp").forward(request, response);
+				request.getRequestDispatcher("Register.jsp").forward(request, response);
 			}
 			
 			String pass = request.getParameter("pass");
@@ -81,7 +81,8 @@ public class ValidateUser extends HttpServlet {
 				session.setAttribute("usuario", user);
 				response.sendRedirect("mainapp.jsp");
 			} else {
-
+                
+				request.setAttribute("user_error", "usuário ou senha incorretos");
 				request.getRequestDispatcher("login.jsp").forward(request, response);
 
 			}

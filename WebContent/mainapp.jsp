@@ -30,10 +30,6 @@
 				<ul class="navbar-nav md-auto">
 					<li class="nav-item"><a class="nav-link active"
 						aria-current="page" href="ProductServlet?action=ListAllProduct" target="myFrame">Produto</a></li>
-					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="Controller?menu=Client" target="myFrame">Clientes</a></li>
-					<li class="nav-item"><a class="nav-link active"
-						aria-current="page" href="Controller?menu=Sales" target="myFrame">Venda</a></li>
 						<li class="nav-item"><a class="nav-link active"
 						aria-current="page" href="ValidateUser?menu=GetUser&email=${usuario.getEmail()}" target="myFrame">Usuario</a></li>
 
@@ -55,7 +51,7 @@
 	</nav>
 
 
-  <div class="m-4 bg-danger" style="height: 600px;">
+  <div class="m-4" style="height: 600px;">
    <iframe  name="myFrame" style="height: 100%; width: 100%"></iframe>
   </div>
 

@@ -19,18 +19,16 @@
 				 	<h3>LOGIN</h3>
 				 	</div>
 				 	<div class="form-group">
-				 	<label>Usuario:</label>
-				 	<input type="text" name="email" class="form-control">
+				 	<label>Email:</label>
+				 	<input type="text" name="email" class="form-control" >
 				 	</div>
 				 	<div class="form-group">
 				 	<label>Senha:</label>
-				 	<input type="password" name="pass" class="form-control">
-				 	</div>
-				 	user_error
-				 	
+				 	<input type="password" name="pass" class="form-control" >
+				 	</div> 	
 				 	<div class="form-group">
-				 	<p>${user_error}</p>
-				 	</div>
+						<p class="text-danger mt-4 text-center">${user_error}</p>
+					</div>
 				 	
 				 	
 				    
