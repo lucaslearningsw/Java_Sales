@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 public class ConnectionDB {
 	
 	Connection con;
-	String url="jdbc:mysql://localhost:3306/sales_db";
+	String url="jdbc:mysql://aa10ek5m2lypqkr.cqsgdsytwmq5.sa-east-1.rds.amazonaws.com:3306/sales_db";
 	String user="root";
 	String pass="sales_dev_uninove";
 	public Connection ConectionDB() {
