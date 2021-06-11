@@ -1,5 +1,5 @@
 # Java_Sales
-Simple college (UNINOVE) projet, using JSP , MYSQL and Servlet applying concept MVC software architecture with CRUD operations.
+Simple college (UNINOVE) project, using JSP , MYSQL and Servlet applying concept MVC software architecture with CRUD operations.
 The main idea of this project is to have a control of products stock managemant, where the user can  delete, insert, update and select produtcts in the database.
 Students in this project , 
 
@@ -14,3 +14,6 @@ RA: 3016200108
 
 Lucas Alixandre Lima
 RA: 919124894
+
+
+LINK WEB http://javasales2-env.eba-bwkhmkvp.sa-east-1.elasticbeanstalk.com/index.html
